@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+
+  tf-gh-action:
+    build: .
+    image: "ghcr.io/libre-devops/azure-terraform-gh-action-base:latest"
+    container_name: "tf-gh-action"
+    restart: unless-stopped
