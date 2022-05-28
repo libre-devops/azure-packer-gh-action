@@ -65,6 +65,6 @@ export PKR_VAR_client_secret="${packer_client_secret}"
 export PKR_VAR_subscription_id="${packer_subscription_id}"
 export PKR_VAR_tenant_id="${packer_tenant_id}"
 
-packer fmt -recursive "${packer_path}" -diff && \
+packer fmt -recursive "${packer_path}" && \
 packer build "${packer_path}"
 
