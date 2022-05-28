@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xeou pipefail
+set -eou pipefail
 
 print_success() {
     lightcyan='\033[1;36m'
@@ -31,25 +31,25 @@ fi
 if [[ -n "${2}" ]]; then
     packer_client_id="${2}"
 else
-    print_error "Variable assignment for resource group failed or is invalid, ensure it is correct and try again - Error LDO_PKR_RG_NAME" ; exit 1
+    print_error "Variable assignment for client_id failed or is invalid, ensure it is correct and try again - Error LDO_PKR_CLIENT_NAME" ; exit 1
 fi
 
 if [[ -n "${3}" ]]; then
     packer_client_secret="${3}"
 else
-    print_error "Variable assignment for compute gallery failed or is invalid, ensure it is correct and try again - Error LDO_PKR_COMPUTE_GALLERY" ; exit 1
+    print_error "Variable assignment for compute gallery failed or is invalid, ensure it is correct and try again - Error LDO_CLIENT_SECRET" ; exit 1
 fi
 
 if [[ -n "${4}" ]]; then
    packer_subscription_id="${4}"
 else
-    print_error "Variable assignment packer client secret failed or is invalid, ensure it is correct and try again - Error LDO_PKR_CLIENT_SECRET" ; exit 1
+    print_error "Variable assignment packer client secret failed or is invalid, ensure it is correct and try again - Error LDO_PKR_SUB_ID" ; exit 1
 fi
 
 if [[ -n "${5}" ]]; then
     packer_tenant_id="${5}"
 else
-    print_error "Variable assignment for packer client id failed or is invalid, ensure it is correct and try again - Error LDO_PKR_CLIENT_ID" ; exit 1
+    print_error "Variable assignment for packer client id failed or is invalid, ensure it is correct and try again - Error LDO_PKR_TENANT_ID" ; exit 1
 fi
 
 if [[ -n "${6}" ]]; then

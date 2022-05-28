@@ -37,8 +37,8 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.packer-template-path }}
-    - ${{ inputs.packer-provider-client-id }}
-    - ${{ inputs.packer-provider-client-secret }}
-    - ${{ inputs.packer-provider-subscription-id }}
-    - ${{ inputs.packer-provider-tenant-id }}
+    - ${{ inputs.packer-client-id }}
+    - ${{ inputs.packer-client-secret }}
+    - ${{ inputs.packer-subscription-id }}
+    - ${{ inputs.packer-tenant-id }}
     - ${{ inputs.packer-version }}
