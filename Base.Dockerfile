@@ -1,7 +1,7 @@
 #Use supplier image
 FROM docker.io/ubuntu:focal
 
-LABEL org.opencontainers.image.source=https://github.com/libre-devops/azure-terraform-gh-action
+LABEL org.opencontainers.image.source=https://github.com/libre-devops/azure-packer-gh-action
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -39,9 +39,11 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/linuxbrew/.bashrc && \
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-RUN brew install tfsec python3 tfenv tree
-RUN pip3 install terraform-compliance checkov && \
-    tfenv install latest
+RUN brew install tree && \
+     brew tap kwilczynski/homebrew-pkenv
+
+RUN brew install pkenv && \
+    pkenv install latest
 
 USER root 
 

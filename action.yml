@@ -1,77 +1,34 @@
 # action.yml
-name: 'Libre DevOps - Run Terraform for Azure -  GitHub Action'
-description: 'The heavily opinionated Libre DevOps Action to run terraform, terraform-compliance, tfsec and checkov, targetting Azure.'
+name: 'Libre DevOps - Run packer for Azure -  GitHub Action'
+description: 'The heavily opinionated Libre DevOps Action to run packer, packer-compliance, tfsec and checkov, targetting Azure.'
 author: "Craig Thacker <craig@craigthacker.dev>"
 branding:
   icon: 'terminal'
   color: 'green'
 
 inputs:
-  terraform-path:
-    description: 'The absolute path in Linux format to your terraform code'
+  packer-path:
+    description: 'The absolute path in Linux format to your packer code'
     required: true
 
-  terraform-workspace-name:
-    description: 'The name of a terraform workspace, should be in plain text string'
-    required: true
-
-  terraform-backend-storage-rg-name:
-    description: 'The name of resource group your storage account exists in,  needed for state file storage'
-    required: true
-
-  terraform-backend-storage-account-name:
-    description: 'The name of your storage account , needed for state file storage'
-    required: true
-
-  terraform-backend-blob-container-name:
-    description: 'The name of your storage account blob container, needed for state file storage'
-    required: true
-
-  terraform-backend-storage-access-key:
-    description: 'The key to access your storage account, needed for state file storage'
-    required: true
-
-  terraform-backend-state-name:
-    description: 'The name of your statefilee, needed for state terraform'
-    required: true
-
-  terraform-provider-client-id:
+  packer-client-id:
     description: 'The client ID for your service principal, needed to authenticate to your tenant'
     required: true
 
-  terraform-provider-client-secret:
+  packer-client-secret:
     description: 'The client secret for your service principal, needed to authenticate to your tenant'
     required: true
 
-  terraform-provider-subscription-id:
+  packer-subscription-id:
     description: 'The subscription id of the subscription you wish to deploy to, needed to authenticate to your tenant'
     required: true
 
-  terraform-provider-tenant-id:
+  packer-tenant-id:
     description: 'The tenant id of which contains subscription you wish to deploy to, needed to authenticate to your tenant'
     required: true
 
-  terraform-compliance-path:
-    description: 'The path to your terraform-compliance policies, should be a local path or passed as git: etc'
-    required: true
-
-  checkov-skipped-tests:
-    description: 'The CKV codes you wish to skip, if any.'
-    required: true
-    default: ""
-
-  run-terraform-destroy:
-    description: 'Do you want to run terraform destroy? - Set to true to trigger terraform plan -destroy'
-    required: true
-    default: "false"
-    
-  run-terraform-plan-only:
-    description: 'Do you only want to run terraform plan & never run the apply or apply destroy? - Set to true to trigger terraform plan only.'
-    required: true
-    default: "true"
-
-  terraform-version:
-    description: 'Which version of terraform should be installed or used? Defaults to latest'
+  packer-version:
+    description: 'Which version of packer should be installed or used? Defaults to latest'
     required: true
     default: "latest"
 
@@ -79,19 +36,19 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.terraform-path }}
-    - ${{ inputs.terraform-workspace-name }}
-    - ${{ inputs.terraform-backend-storage-rg-name }}
-    - ${{ inputs.terraform-backend-storage-account-name }}
-    - ${{ inputs.terraform-backend-blob-container-name }}
-    - ${{ inputs.terraform-backend-storage-access-key }}
-    - ${{ inputs.terraform-backend-state-name }}
-    - ${{ inputs.terraform-provider-client-id }}
-    - ${{ inputs.terraform-provider-client-secret }}
-    - ${{ inputs.terraform-provider-subscription-id }}
-    - ${{ inputs.terraform-provider-tenant-id }}
-    - ${{ inputs.terraform-compliance-path }}
+    - ${{ inputs.packer-path }}
+    - ${{ inputs.packer-workspace-name }}
+    - ${{ inputs.packer-backend-storage-rg-name }}
+    - ${{ inputs.packer-backend-storage-account-name }}
+    - ${{ inputs.packer-backend-blob-container-name }}
+    - ${{ inputs.packer-backend-storage-access-key }}
+    - ${{ inputs.packer-backend-state-name }}
+    - ${{ inputs.packer-provider-client-id }}
+    - ${{ inputs.packer-provider-client-secret }}
+    - ${{ inputs.packer-provider-subscription-id }}
+    - ${{ inputs.packer-provider-tenant-id }}
+    - ${{ inputs.packer-compliance-path }}
     - ${{ inputs.checkov-skipped-tests }}
-    - ${{ inputs.run-terraform-destroy }}
-    - ${{ inputs.run-terraform-plan-only }}
-    - ${{ inputs.terraform-version }}
+    - ${{ inputs.run-packer-destroy }}
+    - ${{ inputs.run-packer-plan-only }}
+    - ${{ inputs.packer-version }}
