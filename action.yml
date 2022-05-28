@@ -7,8 +7,8 @@ branding:
   color: 'blue'
 
 inputs:
-  packer-path:
-    description: 'The absolute path in Linux format to your packer code'
+  packer-template-path:
+    description: 'The absolute path in Linux format to your packer template file'
     required: true
 
   packer-client-id:
@@ -36,7 +36,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.packer-path }}
+    - ${{ inputs.packer-template-path }}
     - ${{ inputs.packer-provider-client-id }}
     - ${{ inputs.packer-provider-client-secret }}
     - ${{ inputs.packer-provider-subscription-id }}
