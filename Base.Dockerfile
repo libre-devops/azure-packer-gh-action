@@ -43,7 +43,7 @@ RUN brew install tree && \
      brew tap kwilczynski/homebrew-pkenv
 
 RUN brew install pkenv
-RUN pkenv install latest
+RUN cd /home/linuxbrew && pkenv install latest
 
 USER root 
 
