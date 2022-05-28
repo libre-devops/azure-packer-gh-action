@@ -23,7 +23,7 @@ print_alert() {
 # Prepare variables with better common names
 if [[ -n "${1}" ]]; then
     packer_path="${1}" && \
-        cd "${packer_path}"
+        print_alert "The path to your packer file is "${packer_path}" in the pipeline, check this is correct" && tree .
 else
     print_error "Code path is empty or invalid, check the following tree output and see if it is as you expect - Error - LDO_PKR_CODE_PATH" && tree . && exit 1
 fi
@@ -56,7 +56,7 @@ if [[ -n "${6}" ]]; then
     packer_version="${6}"
     tfenv install "${packer_version}" && tfenv use "${packer_version}"
 else
-    print_alert "Packer Version is empty, by default, this pipeline will use the latest if it is set as empty, otherwise, you must specify a canonical type version. Error code - LDO_TF_TERRAFORM_VERSION"
+    print_alert "Packer Version is empty, by default, this pipeline will use the latest if it is set as empty, otherwise, you must specify a canonical type version. Error code - LDO_PKR_VERSION"
     pkenv install latest && pkenv use latest
 fi
 
