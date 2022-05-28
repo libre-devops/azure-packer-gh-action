@@ -23,7 +23,7 @@ print_alert() {
 # Prepare variables with better common names
 if [[ -n "${1}" ]]; then
     packer_path="${1}" && \
-        print_alert "The path to your packer file is "${packer_path}" in the pipeline, check this is correct" && tree .
+        print_alert "The path to your packer file is ${packer_path} in the pipeline, check this is correct" && tree .
 else
     print_error "Code path is empty or invalid, check the following tree output and see if it is as you expect - Error - LDO_PKR_CODE_PATH" && tree . && exit 1
 fi
