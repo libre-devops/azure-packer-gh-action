@@ -1,10 +1,10 @@
 # action.yml
-name: 'Libre DevOps - Run packer for Azure -  GitHub Action'
+name: 'Libre DevOps - Run Packer for Azure -  GitHub Action'
 description: 'The heavily opinionated Libre DevOps Action to run packer, packer-compliance, tfsec and checkov, targetting Azure.'
 author: "Craig Thacker <craig@craigthacker.dev>"
 branding:
   icon: 'terminal'
-  color: 'green'
+  color: 'blue'
 
 inputs:
   packer-path:
@@ -37,18 +37,8 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.packer-path }}
-    - ${{ inputs.packer-workspace-name }}
-    - ${{ inputs.packer-backend-storage-rg-name }}
-    - ${{ inputs.packer-backend-storage-account-name }}
-    - ${{ inputs.packer-backend-blob-container-name }}
-    - ${{ inputs.packer-backend-storage-access-key }}
-    - ${{ inputs.packer-backend-state-name }}
     - ${{ inputs.packer-provider-client-id }}
     - ${{ inputs.packer-provider-client-secret }}
     - ${{ inputs.packer-provider-subscription-id }}
     - ${{ inputs.packer-provider-tenant-id }}
-    - ${{ inputs.packer-compliance-path }}
-    - ${{ inputs.checkov-skipped-tests }}
-    - ${{ inputs.run-packer-destroy }}
-    - ${{ inputs.run-packer-plan-only }}
     - ${{ inputs.packer-version }}

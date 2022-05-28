@@ -42,8 +42,8 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
 RUN brew install tree && \
      brew tap kwilczynski/homebrew-pkenv
 
-RUN brew install pkenv && \
-    pkenv install latest
+RUN brew install pkenv
+RUN pkenv install latest
 
 USER root 
 
